@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sistema Despachante - Consulta Veículo</title>
+
+<style>
+body{
+font-family: Arial;
+background:#f2f2f2;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+margin-bottom:20px;
+}
+
+button{
+padding:10px 20px;
+background:#007bff;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.result{
+background:#fafafa;
+padding:15px;
+margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Consulta Débitos Veículo</h2>
+
+<form method="post">
+
+<label>Placa do veículo</label>
+<input type="text" name="placa" placeholder="ABC1D23">
+
+<button type="submit">Consultar</button>
+
+</form>
+
+{% if erro %}
+<p style="color:red">{{erro}}</p>
+{% endif %}
+
+{% if dados %}
+
+<div class="result">
+
+<h3>Resultado</h3>
+
+<p><b>Placa:</b> {{dados.placa}}</p>
+<p><b>IPVA:</b> {{dados.ipva}}</p>
+<p><b>Multas:</b> {{dados.multas}}</p>
+<p><b>Licenciamento:</b> {{dados.licenciamento}}</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
